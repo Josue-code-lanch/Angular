@@ -14,4 +14,14 @@ export class PadreComponent {
   decrementar() {
     this.valorContador --;
   }
+
+
+  // Este es el mensaje que envia el padre al hijo.
+  mensajeDelPadre: string = 'Hola hijo'
+
+  // Este es el mensaje que recibe el padre del hijo.
+  mensajeRecibido: string = '';
+  recibirMensaje($event: string) {
+    this.mensajeRecibido = $event;
+  }
 }

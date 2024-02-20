@@ -1,6 +1,6 @@
 <!-- Este es un ejemplo de como unir o enlazar componentes entre si. -->
-<p>Este es un "Hola Mundo" dentro de otro componente recién creado, llamado "componente padre".</p>
-<app-hijo></app-hijo>
+<!-- <p>Este es un "Hola Mundo" dentro de otro componente recién creado, llamado "componente padre".</p> -->
+<!-- <app-hijo></app-hijo> -->
 
 <br>
 <br>
@@ -10,3 +10,13 @@
 <h3>Contador: {{ valorContador }}</h3>
 <button type="button" (click)="decrementar()">Decrementar</button>
 <button type="button" (click)="incrementar()">Incrementar</button>
+
+<br>
+<br>
+<hr>
+
+
+<!-- <app-hijo [mensajeRecibido]="mensajeDelPadre"></app-hijo> -->
+<!-- Se muestra el mensaje recibido del hijo en la plantilla. -->
+<app-hijo (mensajeParaElPadre)="recibirMensaje($event)"></app-hijo>
+<p>El mensaje que recibí de mi hijo es: <b>{{ mensajeRecibido }}</b></p>
