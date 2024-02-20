@@ -1,2 +1,12 @@
+<!-- Este es un ejemplo de como unir o enlazar componentes entre si. -->
 <p>Este es un "Hola Mundo" dentro de otro componente recién creado, llamado "componente padre".</p>
 <app-hijo></app-hijo>
+
+<br>
+<br>
+<hr>
+
+<!-- Mini ejercicio para ver el enlace de datos entre un componente y el template -->
+<h3>Contador: {{ valorContador }}</h3>
+<button type="button" (click)="decrementar()">Decrementar</button>
+<button type="button" (click)="incrementar()">Incrementar</button>
