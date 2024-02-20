@@ -7,7 +7,8 @@ import { ServicioFamiliarService } from '../servicio-familiar.service';
   styleUrls: ['./hermano.component.css']
 })
 export class HermanoComponent implements OnInit{
-  nombre: string = '';
+  nombre?: string = '';
+  fecha?: Date = new Date;
 
   ngOnInit(): void {
     this._servicioFamiliar.setHermanoMenor('Pedro');
