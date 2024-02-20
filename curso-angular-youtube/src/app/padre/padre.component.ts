@@ -1,27 +1,31 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ServicioFamiliarService } from '../servicio-familiar.service';
 
 @Component({
   selector: 'app-padre',
   templateUrl: './padre.component.html',
   styleUrls: ['./padre.component.css']
 })
-export class PadreComponent {
-  valorContador: number = 0;
+export class PadreComponent implements OnInit{
+  // Comunicacion entre componentes a traves de un Servicio
+  nombre: string = '';
 
-  incrementar() {
-    this.valorContador ++;
+  ngOnInit(): void {
+    this._servicioFamiliar.setHermanoMayor('Juan');
+    this.nombre = this._servicioFamiliar.getHermanoMayor();
   }
-  decrementar() {
-    this.valorContador --;
+
+  saludar(){
+    this._servicioFamiliar.saludar(this._servicioFamiliar.getHermanoMenor());
   }
 
+  preguntar(){
+    console.log(this._servicioFamiliar.preguntarPorHijo())
+  }
 
-  // Este es el mensaje que envia el padre al hijo.
-  mensajeDelPadre: string = 'Hola hijo'
+  constructor(
+    private _servicioFamiliar : ServicioFamiliarService
+  ){
 
-  // Este es el mensaje que recibe el padre del hijo.
-  mensajeRecibido: string = '';
-  recibirMensaje($event: string) {
-    this.mensajeRecibido = $event;
   }
 }
